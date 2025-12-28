@@ -1,0 +1,400 @@
+/**
+ * Visual Enhancements for whatwhatboy.github.io
+ * Adds smooth animations, better shadows, and polished interactions
+ */
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced Game Cards */
+.game-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.game-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+/* Game Image Enhancements */
+.game-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.game-image img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.1);
+}
+
+/* Game Overlay Improvements */
+.game-overlay {
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .game-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* Status Badge Enhancement */
+.game-status {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .game-status {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Enhancements */
+.btn, .game-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before, .game-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before, .game-link:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section Enhancements */
+.hero-bg {
+    transition: opacity 0.5s ease;
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-buttons {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.hero-stats {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Stat Cards Enhancement */
+.stat {
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* Search Bar Enhancement */
+.search-box {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box:focus-within {
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.search-input {
+    transition: all 0.3s ease;
+}
+
+/* Section Header Animations */
+.section-header {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Category Title Enhancement */
+.category-title {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.category-title:hover {
+    color: #3b82f6;
+    transform: translateX(5px);
+}
+
+/* Loading State for Images */
+.game-image img[loading="lazy"] {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cheat Card Enhancements */
+.cheat-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.cheat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.cheat-card.featured {
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.cheat-card.featured:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Feature Icons Enhancement */
+.feature {
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    transform: scale(1.1);
+    color: #3b82f6;
+}
+
+/* Modal Enhancements */
+.modal {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Warning Card Enhancement */
+.warning-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid #3b82f6;
+}
+
+.warning-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.warning-item {
+    transition: all 0.3s ease;
+}
+
+.warning-item:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transform: scale(1.02);
+}
+
+/* Sidebar Enhancements */
+.nav-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: #3b82f6;
+    transition: height 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    height: 100%;
+}
+
+.nav-link:hover {
+    padding-left: 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* Social Links Enhancement */
+.social-links a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Smooth Page Transitions */
+body {
+    animation: pageLoad 0.5s ease-out;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Grid Layout Improvements */
+.games-grid {
+    display: grid;
+    gap: 2rem;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Performance Optimizations */
+.game-card,
+.btn,
+.nav-link,
+.cheat-card {
+    will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Mobile Enhancements */
+@media (max-width: 768px) {
+    .game-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    .game-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Loading Spinner Enhancement */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    animation: spin 1s linear infinite;
+}
+
+/* Scroll Progress Indicator (Optional) */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform-origin: left;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}

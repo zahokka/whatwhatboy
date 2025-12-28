@@ -1,0 +1,276 @@
+/* Performance Optimized Dark Theme - No Lag */
+
+:root {
+    /* Simplified Colors */
+    --bg-darker: #0a0f1e;
+    --bg-card-enhanced: #1a2332;
+    --accent-purple: #8b5cf6;
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Remove heavy backdrop-filter from sidebar */
+.sidebar {
+    background: #1e293b;
+    backdrop-filter: none !important;
+}
+
+/* Remove blur from cards - FIXED */
+.game-card,
+.tool-card,
+.console-card,
+.discord-card,
+.cheat-card {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+/* Remove blur from images - FIXED */
+.game-image,
+.game-image::after,
+.console-image,
+.cheat-image {
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+.game-image img,
+.console-image img,
+.cheat-image img {
+    filter: none !important;
+}
+
+/* Disable heavy animations */
+.cheat-icon,
+.tool-icon,
+.discord-icon {
+    animation: none !important;
+}
+
+/* Simplified hover effects - no lag */
+.game-card:hover,
+.tool-card:hover,
+.console-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
+}
+
+/* Remove heavy box shadows */
+.game-card,
+.tool-card,
+.console-card,
+.discord-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-card:hover,
+.tool-card:hover,
+.console-card:hover,
+.discord-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Remove shimmer animations */
+.hero::before {
+    animation: none !important;
+}
+
+/* Disable title glow animation */
+.hero-title {
+    animation: none !important;
+}
+
+/* Remove pulse animation */
+.discord-icon {
+    animation: none !important;
+}
+
+/* Remove floating animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+}
+
+/* Simpler search input */
+.search-input {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+.search-input:focus {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+/* Remove glass effects that cause lag */
+.contact-card,
+.project-card,
+.category-card {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+.social-links a {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+/* Disable section animations */
+.section::before {
+    display: none !important;
+}
+
+/* Optimize button animations */
+.btn-primary::before {
+    display: none !important;
+}
+
+/* Remove warning card blur */
+.warning-card {
+    background: var(--bg-card-enhanced);
+    backdrop-filter: none !important;
+}
+
+/* Simplify scrollbar */
+::-webkit-scrollbar-thumb {
+    background: var(--accent-purple);
+    box-shadow: none;
+}
+
+/* Remove grid animations */
+.games-grid,
+.tools-grid,
+.console-grid,
+.discord-grid {
+    animation: none !important;
+}
+
+/* Clear all backdrop filters globally */
+* {
+    backdrop-filter: none !important;
+}
+
+/* Optimize transforms */
+.game-card:hover .game-image img,
+.console-card:hover .console-image img {
+    transform: none !important;
+}
+
+/* Remove icon transforms that cause lag */
+.tool-card:hover .tool-icon img,
+.cheat-card:hover .cheat-icon {
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Disable will-change */
+.game-card,
+.cheat-card {
+    will-change: auto !important;
+}
+
+/* Simple transitions only */
+.game-card,
+.tool-card,
+.console-card,
+.discord-card,
+.cheat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Remove complex gradients from backgrounds */
+body {
+    background: var(--bg-darker);
+    background-image: none !important;
+}
+
+.hero {
+    background: var(--bg-darker);
+}
+
+/* Disable feature hover animations */
+.feature {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.feature:hover {
+    background: rgba(99, 102, 241, 0.12);
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove nav link animations */
+.nav-list .nav-link::before {
+    display: none !important;
+}
+
+/* Simplify card hover borders */
+.game-card::before,
+.tool-card::before,
+.console-card::before,
+.discord-card::before,
+.cheat-card::before {
+    display: none !important;
+}
+
+/* Remove section header animations */
+.section-title::before {
+    display: none !important;
+}
+
+.section-header::after {
+    animation: none !important;
+}
+
+/* Optimize status badges */
+.game-status::before,
+.status-badge::before {
+    display: none !important;
+}
+
+/* Remove category icon animations */
+.category-icon,
+.opp-icon {
+    animation: none !important;
+    box-shadow: none;
+}
+
+/* Clear image filters */
+img {
+    filter: none !important;
+}
+
+/* Disable search modal backdrop blur */
+.search-modal {
+    backdrop-filter: blur(5px) !important; /* Keep minimal blur here for modal */
+}
+
+.search-modal-content {
+    backdrop-filter: none !important;
+}
+
+.search-modal-input {
+    backdrop-filter: none !important;
+}
+
+/* Performance: Use opacity instead of complex animations */
+.btn-primary:hover,
+.btn-outline:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Keep only essential effects */
+.game-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Remove heavy text shadows */
+.hero-title {
+    text-shadow: none !important;
+}
+
+.game-link:hover,
+.tool-link:hover,
+.console-link:hover {
+    text-shadow: none !important;
+}

@@ -1,0 +1,617 @@
+/* Enhanced Dark Mode Theme Improvements */
+
+:root {
+    /* Enhanced Dark Color Palette */
+    --bg-darker: #0a0f1e;
+    --bg-dark: #0f172a;
+    --bg-card-enhanced: #1a2332;
+    --bg-card-hover: #1e2938;
+
+    /* Vibrant Accent Colors */
+    --accent-purple: #8b5cf6;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-pink: #ec4899;
+    --accent-orange: #f97316;
+
+    /* Enhanced Gradients */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-gaming: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --gradient-dark: linear-gradient(135deg, #1a2332 0%, #0f172a 100%);
+
+    /* Glass Effect */
+    --glass-bg: rgba(26, 35, 50, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Improved Shadows */
+    --shadow-glow-primary: 0 0 30px rgba(99, 102, 241, 0.3);
+    --shadow-glow-accent: 0 0 20px rgba(139, 92, 246, 0.4);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Enhanced Body Background */
+body {
+    background: var(--bg-darker);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Enhanced Sidebar */
+.sidebar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.sidebar-logo {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.nav-list .nav-link {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-list .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    transition: width 0.3s ease;
+}
+
+.nav-list .nav-link:hover::before,
+.nav-list .nav-link.active::before {
+    width: 100%;
+}
+
+.nav-list .nav-link.active {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.15) 0%, transparent 100%);
+    border-left-color: var(--accent-purple);
+    box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+/* Enhanced Cards */
+.game-card,
+.tool-card,
+.console-card,
+.discord-card,
+.cheat-card {
+    background: var(--bg-card-enhanced);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before,
+.tool-card::before,
+.console-card::before,
+.discord-card::before,
+.cheat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.game-card:hover::before,
+.tool-card:hover::before,
+.console-card:hover::before,
+.discord-card:hover::before,
+.cheat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.game-card:hover,
+.tool-card:hover,
+.console-card:hover,
+.discord-card:hover,
+.cheat-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: var(--shadow-card-hover), var(--shadow-glow-accent);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Enhanced Game Image */
+.game-image {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-image::after {
+    opacity: 1;
+}
+
+/* Enhanced Status Badges */
+.game-status,
+.status-badge {
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.game-status::before,
+.status-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.game-card:hover .game-status::before,
+.cheat-card:hover .status-badge::before {
+    left: 100%;
+}
+
+/* Enhanced Buttons */
+.btn-primary {
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-outline {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(var(--bg-card-enhanced), var(--bg-card-enhanced)) padding-box,
+                var(--gradient-primary) border-box;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow-primary);
+}
+
+/* Enhanced Hero Section */
+.hero {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        var(--bg-darker);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(135deg, transparent 0%, rgba(99, 102, 241, 0.03) 50%, transparent 100%);
+    animation: heroShimmer 10s ease-in-out infinite;
+}
+
+@keyframes heroShimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.hero-title {
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); }
+    50% { filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.5)); }
+}
+
+/* Enhanced Section Headers */
+.section-header {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+.section:hover .section-title::before {
+    transform: scaleX(1);
+}
+
+/* Enhanced Discord Cards */
+.discord-card.featured {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.1) 0%, var(--bg-card-enhanced) 100%);
+    border-color: rgba(88, 101, 242, 0.3);
+}
+
+.discord-icon {
+    background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+    box-shadow: 0 0 30px rgba(88, 101, 242, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(88, 101, 242, 0.6); }
+}
+
+/* Enhanced Features */
+.feature {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* Enhanced Footer */
+.footer {
+    background: linear-gradient(180deg, var(--bg-darker) 0%, #000000 100%);
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-primary);
+    opacity: 0.5;
+}
+
+/* Enhanced Social Links */
+.social-links a {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Enhanced Search Box */
+.search-input {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    background: var(--bg-card-enhanced);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Enhanced Tool Cards */
+.tool-icon img,
+.cheat-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tool-card:hover .tool-icon img,
+.cheat-card:hover .cheat-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+}
+
+/* Enhanced Console Cards */
+.console-image {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    transition: all 0.3s ease;
+}
+
+.console-card:hover .console-image {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
+/* Enhanced Warning Cards */
+.warning-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.1);
+}
+
+.warning-header {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.warning-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--warning-color);
+    border-radius: 2px;
+}
+
+/* Enhanced Video Cards */
+.video-card {
+    background: var(--bg-card-enhanced);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.video-card:hover {
+    border-color: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 12px 48px rgba(255, 0, 0, 0.2);
+}
+
+/* Loading Animation Enhancement */
+.spinner {
+    border-top-color: var(--accent-purple);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Scroll Bar Enhancement */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+    border-radius: 6px;
+    border: 2px solid var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Text Selection */
+::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #ffffff;
+}
+
+/* Floating Animation for Icons */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.cheat-icon,
+.tool-icon,
+.discord-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+.cheat-card:hover .cheat-icon,
+.tool-card:hover .tool-icon,
+.discord-card:hover .discord-icon {
+    animation: none;
+}
+
+/* Glow Effect for Interactive Elements */
+.game-link:hover,
+.tool-link:hover,
+.console-link:hover,
+.discord-join:hover {
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(30px);
+    }
+
+    .game-card:hover,
+    .tool-card:hover,
+    .console-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+}
+
+/* Improve Glass Effect on Cards */
+.contact-card,
+.project-card,
+.category-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+}
+
+/* Enhanced Hero Stats */
+.stat {
+    position: relative;
+}
+
+.stat::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+/* Better Grid Animations */
+.games-grid,
+.tools-grid,
+.console-grid,
+.discord-grid {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Category Icons */
+.category-icon,
+.opp-icon {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Better Link Hover Effects */
+a {
+    transition: all 0.3s ease;
+}
+
+a:not(.btn):hover {
+    filter: brightness(1.2);
+}
+
+/* Enhanced Image Hover */
+.game-image img,
+.console-image img,
+.tool-icon img {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover .game-image img,
+.console-card:hover .console-image img,
+.tool-card:hover .tool-icon img {
+    transform: scale(1.1);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+/* Professional Depth Effect */
+.section {
+    position: relative;
+    z-index: 1;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.02) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
